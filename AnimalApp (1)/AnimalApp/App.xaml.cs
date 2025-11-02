@@ -1,0 +1,1 @@
+using System.Windows; namespace AnimalApp { public partial class App : Application { } }
