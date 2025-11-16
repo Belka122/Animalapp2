@@ -1,0 +1,51 @@
+<Window x:Class="AnimalApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:models="clr-namespace:AnimalApp.Models"
+        mc:Ignorable="d"
+        Title="AnimalApp" Height="450" Width="800">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Список животных -->
+        <GroupBox Header="Loomad" Grid.RowSpan="2" Grid.Column="0" Margin="5">
+            <ListBox x:Name="AnimalsListBox"
+                     DisplayMemberPath="Name"
+                     SelectionChanged="AnimalsListBox_SelectionChanged" />
+        </GroupBox>
+
+        <!-- Детали выбранного животного -->
+        <GroupBox Header="Looma detailid" Grid.Column="1" Margin="5">
+            <StackPanel Margin="5">
+                <TextBlock Text="Nimi:" FontWeight="Bold"/>
+                <TextBlock x:Name="NameTextBlock" Margin="0,0,0,10"/>
+
+                <TextBlock Text="Vanus:" FontWeight="Bold"/>
+                <TextBlock x:Name="AgeTextBlock" Margin="0,0,0,10"/>
+
+                <TextBlock Text="Liik:" FontWeight="Bold"/>
+                <TextBlock x:Name="SpeciesTextBlock" Margin="0,0,0,20"/>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,10,0,0">
+                    <Button Content="Toida" Width="80" Margin="0,0,10,0" Click="FeedButton_Click"/>
+                    <Button Content="Tee hääl" Width="80" Click="SoundButton_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- Лог действий -->
+        <GroupBox Header="Loomade logi" Grid.RowSpan="2" Grid.Column="2" Margin="5">
+            <ListBox x:Name="LogListBox"/>
+        </GroupBox>
+    </Grid>
+</Window>
